@@ -1,13 +1,16 @@
-from math import gcd
+#https://www.hackerrank.com/challenges/reduce-function
+
+from fractions import Fraction
 from functools import reduce
 
-x = [[1,2],[3,4],[10,6]]
-
 def product(fracs):
-    func = lambda x, y : [x[0]*y[0], x[1]*y[1]]
-    frc = reduce(func, fracs)
-    frc_gcd = gcd(*frc)
-    rslt = [int(i/frc_gcd) for i in frc]
-    print(*rslt)
-    
-product(x)
+    func = lambda x,y : Fraction(x.numerator*y.numerator, x.denominator*y.denominator)
+    t = reduce(func, fracs)
+    return t.numerator, t.denominator
+
+if __name__ == '__main__':
+    fracs = []
+    for _ in range(int(input())):
+        fracs.append(Fraction(*map(int, input().split())))
+    result = product(fracs)
+    print(*result)
