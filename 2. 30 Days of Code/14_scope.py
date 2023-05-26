@@ -5,7 +5,7 @@ class Difference:
         self.__elements = a
     def computeDifference(self):
         elem = set(self.__elements)
-        d.maximumDifference = max(elem) - min(elem)
+        Difference.maximumDifference = max(elem) - min(elem)
         return
 
 _ = input()
