@@ -35,13 +35,10 @@ def print_singly_linked_list(node, sep):
             print(sep, end='')
 
 def reversePrint(llist):
-    node = llist
-    if llist is not None:
-        result = [node.data]
-    while node.next is not None:
-        node = node.next
-        result.append(node.data)
-    print(*result[::-1], sep = '\n')
+    if llist is None:
+        return
+    reversePrint(llist.next)
+    print(llist.data)
 
 if __name__ == '__main__':
     tests = int(input())
